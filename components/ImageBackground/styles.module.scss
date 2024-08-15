@@ -1,0 +1,13 @@
+.imageBackground {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  filter: grayscale(1);
+  cursor: pointer;
+  transition: ease-in-out all 0.5s;
+}
+
+.imageBackground:hover {
+  filter: grayscale(0);
+}
