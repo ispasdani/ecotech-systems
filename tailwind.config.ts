@@ -12,6 +12,8 @@ const config = {
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
+    "./bold-components/**/*.{ts,tsx}",
+    "./bold-sections/**/*.{ts,tsx}",
     "./sections/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",

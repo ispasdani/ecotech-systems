@@ -1,5 +1,5 @@
-import { BicepsFlexed, ChevronDown } from "lucide-react";
-import Link from "next/link";
+import { BicepsFlexed } from "lucide-react";
+
 import React from "react";
 import DropdownMenu from "./DropdownMenu";
 import { TransitionLink } from "@/utils/TransitionLink";
@@ -18,7 +18,7 @@ const Nav = () => {
             />
             <p className="ml-2 text-sm">bold mode</p>
           </TransitionLink>
-          <DropdownMenu />
+          <DropdownMenu noWrap={true} />
         </div>
       </div>
     </nav>

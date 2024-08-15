@@ -6,12 +6,14 @@ type VideoPlayerProps = {
   src: string;
   ctrlButtonSvg?: string;
   ctrlButtonBorder?: string;
+  rounded?: boolean;
 };
 
 const VideoPlayer = ({
   src,
   ctrlButtonBorder,
   ctrlButtonSvg,
+  rounded,
 }: VideoPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -27,13 +29,17 @@ const VideoPlayer = ({
   };
 
   return (
-    <div className="w-full h-full relative filter grayscale">
+    <div
+      className={`w-full h-full relative filter grayscale ${
+        rounded ? "rounded-xl" : ""
+      }`}
+    >
       <video
         loop
         autoPlay
         muted
         ref={videoRef}
-        className="h-full w-full object-cover"
+        className={`h-full w-full object-cover ${rounded ? "rounded-xl" : ""}`}
       >
         <source src={src} type="video/mp4" />
       </video>

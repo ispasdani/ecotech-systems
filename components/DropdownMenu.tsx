@@ -5,7 +5,12 @@ import { Plus } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const DropdownMenu = () => {
+type DropdownMenuProps = {
+  darkBackground?: boolean;
+  noWrap?: boolean;
+};
+
+const DropdownMenu = ({ darkBackground, noWrap }: DropdownMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const variants = {
@@ -21,7 +26,9 @@ const DropdownMenu = () => {
   return (
     <div className="relative flex justify-center items-center ml-5">
       <button
-        className="flex justify-center items-center text-black py-1 text-nowrap group border-b border-black"
+        className={`flex justify-center items-center  py-1 text-nowrap group border-b ${
+          darkBackground ? "text-white border-white" : "text-black border-black"
+        }`}
         onClick={() => setIsOpen((isOpen) => !isOpen)}
       >
         <Plus
@@ -38,37 +45,53 @@ const DropdownMenu = () => {
         initial="closed" // Start in the closed state
         animate={isOpen ? "open" : "closed"}
         variants={variants}
-        className="text-white absolute right-0 p-5 top-10 bg-black w-[300px] h-[260px] rounded-xl z-20"
+        className={` absolute right-0 p-5 top-10  w-[300px] h-[260px] rounded-xl z-20 ${
+          darkBackground ? "bg-white text-black" : "bg-black text-white"
+        }`}
         style={{ transformOrigin: "top right" }} // Keep this line to set the transform origin
       >
         <p className="font-extrabold mb-3">ECOTECH SYSTEMS.</p>
-        <ul className="w-full flex flex-row md:flex-col flex-wrap justify-evenly items-start">
+        <ul
+          className={`w-full flex flex-wrap justify-evenly items-start ${
+            noWrap ? "flex-col" : "flex-row md:flex-col"
+          }`}
+        >
           <li
-            className="border-b mb-1 text-md cursor-pointer hover:translate-x-2 transition-all duration-300 border-white"
+            className={`border-b mb-1 text-md cursor-pointer hover:translate-x-2 transition-all duration-300  ${
+              darkBackground ? "border-black" : "border-white"
+            }`}
             onClick={() => setIsOpen(() => false)}
           >
             <Link href={"#about"}>ABOUT</Link>
           </li>
           <li
-            className="border-b mb-1 text-md cursor-pointer hover:translate-x-2 transition-all duration-300 border-white"
+            className={`border-b mb-1 text-md cursor-pointer hover:translate-x-2 transition-all duration-300  ${
+              darkBackground ? "border-black" : "border-white"
+            }`}
             onClick={() => setIsOpen(() => false)}
           >
             <Link href={"#service"}>SERVICE</Link>
           </li>
           <li
-            className="border-b mb-1 text-md cursor-pointer hover:translate-x-2 transition-all duration-300 border-white"
+            className={`border-b mb-1 text-md cursor-pointer hover:translate-x-2 transition-all duration-300  ${
+              darkBackground ? "border-black" : "border-white"
+            }`}
             onClick={() => setIsOpen(() => false)}
           >
             <Link href={"#products"}>PRODUCTS</Link>
           </li>
           <li
-            className="border-b mb-1 text-md cursor-pointer hover:translate-x-2 transition-all duration-300 border-white"
+            className={`border-b mb-1 text-md cursor-pointer hover:translate-x-2 transition-all duration-300  ${
+              darkBackground ? "border-black" : "border-white"
+            }`}
             onClick={() => setIsOpen(() => false)}
           >
             <Link href={"#research"}>RESEARCH</Link>
           </li>
           <li
-            className="border-b mb-1 text-md cursor-pointer hover:translate-x-2 transition-all duration-300 border-white"
+            className={`border-b mb-1 text-md cursor-pointer hover:translate-x-2 transition-all duration-300  ${
+              darkBackground ? "border-black" : "border-white"
+            }`}
             onClick={() => setIsOpen(() => false)}
           >
             <Link href={"#contact"}>CONTACT US</Link>
